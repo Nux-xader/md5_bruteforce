@@ -29,7 +29,17 @@ def load_wordlist():
 
 
 def main():
-    pass
+    wordlists = load_wordlist()
+    while True:
+        invalid = False
+        md5hash = str(input(" [*] Enter your md5 hash : "))
+        if len(md5hash) != 32: invalid = True
+        if True in tuple(i.isupper() for i in md5hash): invalid = True
+        if True in tuple(not i.isalnum() for i in md5hash): invalid = True
+        if invalid:
+            print(" [!] Invalid md5 hash")
+            continue
+        break
 
 
 if __name__ == "__main__":
