@@ -40,6 +40,12 @@ def main():
             print(" [!] Invalid md5 hash")
             continue
         break
+    
+    print(" [+] Bruteforce started...")
+    for word in wordlists:
+        print(f" [+] Try using {word}")
+        if hashlib.md5(word.encode()).hexdigest() == md5hash: break
+    print(f" [+] Found match word {word} || {md5hash}")
 
 
 if __name__ == "__main__":
